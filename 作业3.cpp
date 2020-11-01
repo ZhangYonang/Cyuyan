@@ -5,6 +5,7 @@ int main()
 	printf("请输入要加密的字母\n");
 	scanf("%c%c%c%c%c%c",&c1,&c2,&c3,&c4,&c5,&c6);
 	c1+=5,c2+=5,c3+=5,c4+=5,c5+=5,c6+=5;
+	printf("输出的加密字符为\n");
 	printf("%c%c%c%c%c%c",c1,c2,c3,c4,c5,c6);
 	return 0; 
  } 
