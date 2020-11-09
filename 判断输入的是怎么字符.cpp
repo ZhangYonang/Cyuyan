@@ -19,4 +19,5 @@ int main()
 	else
 	printf("您输入的是一个字符\n"); 
 	return 0; 
+	
  } 
