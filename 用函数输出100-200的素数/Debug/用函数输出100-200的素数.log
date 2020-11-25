@@ -1,0 +1,3 @@
+﻿  zdyss.c
+D:\Cyuyan\用函数输出100-200的素数\zdyss.c(17): warning C4715: “is_prime”: 不是所有的控件路径都返回值
+  用函数输出100-200的素数.vcxproj -> D:\Cyuyan\用函数输出100-200的素数\Debug\用函数输出100-200的素数.exe

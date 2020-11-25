@@ -1,0 +1,2 @@
+D:\Cyuyan\猜数字小游戏\Debug\猜数字小游戏.exe
+D:\Cyuyan\猜数字小游戏\Debug\猜数字小游戏.pdb
