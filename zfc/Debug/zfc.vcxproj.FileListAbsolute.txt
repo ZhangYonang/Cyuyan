@@ -1,0 +1,2 @@
+D:\Cyuyan\zfc\Debug\zfc.exe
+D:\Cyuyan\zfc\Debug\zfc.pdb
