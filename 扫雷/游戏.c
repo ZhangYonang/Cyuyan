@@ -58,16 +58,17 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	while (1)
+int wen=0;
+	while (wen<row*col-EASY_COUNT)
 	{
-    printf("ÇëÊäÈëÒªÅÅ²éµÄ×ø±ê:>");
+    printf("è¯·è¾“å…¥è¦æŽ’æŸ¥çš„åæ ‡:>");
 	scanf_s("%d%d", &x, &y);
 	if (x >= 1 && x <= row && y >= 1 && y <= col)
 	{
 		if (mine[x][y] == '1')
 		{
 			printf("Bown!!!!!!!!\n");
-			printf("Äã²Èµ½À×ÁË£¬Äã±»Õ¨ËÀÁË¡¢¡¢¡¢\n");
+			printf("ä½ è¸©åˆ°é›·äº†ï¼Œä½ è¢«ç‚¸æ­»äº†ã€ã€ã€\n");
 			DisplayBoard(mine, row, col);
 			break;
 		}
@@ -76,13 +77,18 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			int count=get_mine_count(mine, x, y);
 			show[x][y] = count + '0';
 			DisplayBoard(show, row, col);
+wen++;
 		}
 	}
 	else
 	{
-		printf("ÊäÈë×ø±ê·Ç·¨ÇëÖØÐÂÊäÈë¡¢¡¢¡¢");
+		printf("è¾“å…¥åæ ‡éžæ³•è¯·é‡æ–°è¾“å…¥ã€ã€ã€");
 	}
  }
+if(wen==row*col-EASY_COUNT)
+{
+printf("æ­å–œä½ æŽ’é›·æˆåŠŸã€ã€ã€\n");
+}
    
 }
 	
