@@ -44,9 +44,10 @@ void playermove(char board[ROW][COL], int row, int col)
 	int y = 0;
 	while (1)
 	{
-		printf("Íæ¼ÒÏÂÆå\n");
-		printf("ÇëÊäÈëÒªÏÂÆåµÄ×ø±ê:>\n");
+		printf("çŽ©å®¶ä¸‹æ£‹\n");
+		printf("è¯·è¾“å…¥è¦ä¸‹æ£‹çš„åæ ‡:>\n");
 		scanf_s("%d%d", &x, &y);
+		system("cls");
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
 		{
 			if (board[x - 1][y - 1] == ' ')
@@ -56,12 +57,12 @@ void playermove(char board[ROW][COL], int row, int col)
 			}
 			else
 			{
-				printf("¸Ã×ø±ê±»Õ¼ÓÃ£¬ÇëÖØÐÂÊäÈë¡¢¡¢¡¢\n");
+				printf("è¯¥åæ ‡è¢«å ç”¨ï¼Œè¯·é‡æ–°è¾“å…¥ã€ã€ã€\n");
 			}
 		}
 		else
 		{
-			printf("·Ç·¨×ø±ê£¬ÇëÖØÐÂÊäÈë¡¢¡¢¡¢\n");
+			printf("éžæ³•åæ ‡ï¼Œè¯·é‡æ–°è¾“å…¥ã€ã€ã€\n");
 		}
 	}
 	
@@ -70,7 +71,8 @@ void computermove(char board[ROW][COL], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	printf("µçÄÔÏÂÆå:>\n");
+	printf("ç”µè„‘ä¸‹æ£‹:>\n");
+	system("cls");
 	while (1)
 	{
 		x = rand() % row;
