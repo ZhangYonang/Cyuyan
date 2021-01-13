@@ -63,6 +63,7 @@ int wen=0;
 	{
     printf("请输入要排查的坐标:>");
 	scanf_s("%d%d", &x, &y);
+	system("cls");
 	if (x >= 1 && x <= row && y >= 1 && y <= col)
 	{
 		if (mine[x][y] == '1')
