@@ -83,7 +83,8 @@ wen++;
 	}
 	else
 	{
-		printf("输入坐标非法请重新输入、、、");
+		printf("输入坐标非法请重新输入、、、\n");
+		DisplayBoard(show, row, col);
 	}
  }
 if(wen==row*col-EASY_COUNT)
