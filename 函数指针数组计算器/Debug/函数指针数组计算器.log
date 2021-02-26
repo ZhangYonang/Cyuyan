@@ -1,0 +1,5 @@
+﻿  hanshu.c
+D:\Cyuyan\函数指针数组计算器\hanshu.c(23,8): warning C4013: “printf”未定义；假设外部返回 int
+  tese.c
+  正在生成代码...
+  函数指针数组计算器.vcxproj -> D:\Cyuyan\函数指针数组计算器\Debug\函数指针数组计算器.exe

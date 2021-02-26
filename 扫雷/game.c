@@ -58,10 +58,12 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
 	int x = 0;
 	int y = 0;
-	while (1)
+	int wen = 0;
+	while (wen<row*col-EASY_COUNT)
 	{
     printf("请输入要排查的坐标:>");
 	scanf_s("%d%d", &x, &y);
+	system("cls");
 	if (x >= 1 && x <= row && y >= 1 && y <= col)
 	{
 		if (mine[x][y] == '1')
@@ -76,11 +78,17 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			int count=get_mine_count(mine, x, y);
 			show[x][y] = count + '0';
 			DisplayBoard(show, row, col);
+			wen++;
 		}
 	}
 	else
 	{
-		printf("输入坐标非法请重新输入、、、");
+		printf("输入坐标非法请重新输入、、、\n");
+		DisplayBoard(show, row, col);
+	}
+	if (wen == row * col - EASY_COUNT)
+	{
+		printf("恭喜你，排雷成功、、、\n");
 	}
  }
    

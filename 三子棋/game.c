@@ -47,6 +47,7 @@ void playermove(char board[ROW][COL], int row, int col)
 		printf("玩家下棋\n");
 		printf("请输入要下棋的坐标:>\n");
 		scanf_s("%d%d", &x, &y);
+		system("cls");
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
 		{
 			if (board[x - 1][y - 1] == ' ')
@@ -71,6 +72,7 @@ void computermove(char board[ROW][COL], int row, int col)
 	int x = 0;
 	int y = 0;
 	printf("电脑下棋:>\n");
+	system("cls");
 	while (1)
 	{
 		x = rand() % row;
