@@ -23,7 +23,7 @@ int main()
 		}
 		else
 		{
-			printf("输入错误,请重新输入、、、");
+			printf("输入错误,请重新输入、、");
 		}
 	} while (input);
 	return 0;
