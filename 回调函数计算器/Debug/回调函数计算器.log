@@ -1,0 +1,4 @@
+﻿  computer.c
+D:\Cyuyan\回调函数计算器\computer.c(25,8): warning C4013: “printf”未定义；假设外部返回 int
+D:\Cyuyan\回调函数计算器\computer.c(26,9): warning C4013: “scanf_s”未定义；假设外部返回 int
+  回调函数计算器.vcxproj -> D:\Cyuyan\回调函数计算器\Debug\回调函数计算器.exe
