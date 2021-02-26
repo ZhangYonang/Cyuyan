@@ -44,8 +44,8 @@ void playermove(char board[ROW][COL], int row, int col)
 	int y = 0;
 	while (1)
 	{
-		printf("Íæ¼ÒÏÂÆå\n");
-		printf("ÇëÊäÈëÒªÏÂÆåµÄ×ø±ê:>\n");
+		printf("ç©å®¶ä¸‹æ£‹\n");
+		printf("è¯·è¾“å…¥è¦ä¸‹æ£‹çš„åæ ‡:>\n");
 		scanf_s("%d%d", &x, &y);
 		system("cls");
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
@@ -57,12 +57,12 @@ void playermove(char board[ROW][COL], int row, int col)
 			}
 			else
 			{
-				printf("¸Ã×ø±ê±»Õ¼ÓÃ£¬ÇëÖØĞÂÊäÈë¡¢¡¢¡¢\n");
+				printf("è¯¥åæ ‡è¢«å ç”¨ï¼Œè¯·é‡æ–°è¾“å…¥ã€ã€ã€\n");
 			}
 		}
 		else
 		{
-			printf("·Ç·¨×ø±ê£¬ÇëÖØĞÂÊäÈë¡¢¡¢¡¢\n");
+			printf("éæ³•åæ ‡ï¼Œè¯·é‡æ–°è¾“å…¥ã€ã€ã€\n");
 		}
 	}
 	
@@ -71,7 +71,11 @@ void computermove(char board[ROW][COL], int row, int col)
 {
 	int x = 0;
 	int y = 0;
+<<<<<<< HEAD:ä¸‰å­æ£‹/game.c
 	printf("µçÄÔÏÂÆå:>\n");
+=======
+	printf("ç”µè„‘ä¸‹æ£‹:>\n");
+>>>>>>> b8ac04995ad07ea82dc4b3ab6e674c1379896ad1:ä¸‰å­æ£‹/æ¸¸æˆ. c
 	system("cls");
 	while (1)
 	{
