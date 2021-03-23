@@ -1,2 +1,4 @@
 ﻿  game.c
-  扫雷.vcxproj -> D:\Cyuyan\扫雷\Debug\扫雷.exe
+c1 : fatal error C1083: 无法打开源文件: “game.c”: No such file or directory
+  text.c
+  正在生成代码...

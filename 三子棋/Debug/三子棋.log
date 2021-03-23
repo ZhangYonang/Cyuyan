@@ -1,2 +1,4 @@
 ﻿  game.c
-  三子棋.vcxproj -> D:\Cyuyan\三子棋\Debug\三子棋.exe
+c1 : fatal error C1083: 无法打开源文件: “game.c”: No such file or directory
+  text.c
+  正在生成代码...

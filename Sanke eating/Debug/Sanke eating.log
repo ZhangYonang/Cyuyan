@@ -1,0 +1,8 @@
+﻿  test.c
+D:\Cyuyan\Sanke eating\test.c(24,10): warning C4098: “Menu”:“void”函数返回值
+D:\Cyuyan\Sanke eating\test.c(37,12): warning C4098: “Select”:“void”函数返回值
+D:\Cyuyan\Sanke eating\test.c(70,12): warning C4098: “Reward”:“void”函数返回值
+D:\Cyuyan\Sanke eating\test.c(74,12): warning C4098: “Reward”:“void”函数返回值
+D:\Cyuyan\Sanke eating\test.c(77,12): warning C4098: “Reward”:“void”函数返回值
+D:\Cyuyan\Sanke eating\test.c(81,12): warning C4098: “Reward”:“void”函数返回值
+  Sanke eating.vcxproj -> D:\Cyuyan\Sanke eating\Debug\Sanke eating.exe
