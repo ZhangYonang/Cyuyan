@@ -1,0 +1,3 @@
+﻿  test.c
+D:\Cyuyan\杨氏矩阵\test.c(26): warning C4715: “faind”: 不是所有的控件路径都返回值
+  杨氏矩阵.vcxproj -> D:\Cyuyan\杨氏矩阵\Debug\杨氏矩阵.exe

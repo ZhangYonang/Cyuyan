@@ -1,0 +1,20 @@
+﻿  text.c
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(5,24): warning C4047: “函数”:“const char *”与“char **”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(5,20): warning C4024: “strlen”: 形参和实参 1 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(6,24): warning C4047: “函数”:“const char *”与“char **”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(6,20): warning C4024: “strlen”: 形参和实参 1 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,16): warning C4047: “函数”:“char *”与“char **”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,12): warning C4024: “strncat_s”: 形参和实参 1 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,22): warning C4047: “函数”:“rsize_t”与“char **”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,18): warning C4024: “strncat_s”: 形参和实参 2 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,25): warning C4047: “函数”:“const char *”与“int”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,24): warning C4024: “strncat_s”: 形参和实参 3 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(13,11): error C2198: “strncat_s”: 用于调用的参数太少
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(16,25): warning C4047: “函数”:“const char *”与“char **”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(16,21): warning C4024: “strstr”: 形参和实参 1 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(16,31): warning C4047: “函数”:“const char *”与“char **”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(16,27): warning C4024: “strstr”: 形参和实参 2 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(30,29): warning C4047: “函数”:“char **”与“char [100]”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(30,25): warning C4024: “is_left_move”: 形参和实参 1 的类型不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(30,35): warning C4047: “函数”:“char **”与“char [10]”的间接级别不同
+D:\Cyuyan\判断字符arr2串是否由arr1逆序而来\text.c(30,31): warning C4024: “is_left_move”: 形参和实参 2 的类型不同

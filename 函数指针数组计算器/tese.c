@@ -17,7 +17,7 @@ int main()
 			printf("½á¹ûÎª:");
 			printf("%d\n", parr[input](a, b));
 		}
-		else if (input == 0)
+		else if (input == 0
 		{
 			return 0;
 		}

@@ -329,19 +329,183 @@
 // 有25匹马 5个跑道 没有计时器 请赛马确定 25匹马中的前三名
 // 请问最少赛几次
 //
-int mian()
-{
-    int input;
-    int a = 0;
-    int i = 0;
-    scanf_s("%d", &input);
-    for (a = 0; a <= input; a++)
-    {
-        for (i = 0; i <= a; i++)
-        {
-            printf(" ");
-        }
-        printf("*");
-    }
-    return 0;
-}
+//LS指令
+//语法:[选项][目录或文件夹]
+//功能:对于目录，该命令列出该目录下所有子目录与文件。对于文件，将列出文件名以及其他信息。
+//常用选项：
+//* -a 列出目录下的所有文件，包括以，开头的隐藏文件。
+//* -d 将目录文件一样显示，而不是显示其下的文件，如：ls -d指定目录
+//* -i 输出文件的i节点的索引信息。如ls -ai指定文件
+//* -k 以k字节的形式表示文件的大小。ls -alk指定文件
+//* -l列出文件的详细信息
+//* -t以时间排序。
+//* -R列出所有子目录下的文件（递归）
+//pwd命令
+//语法：pwd
+//功能：显示用户当前所在位置
+//
+//cd指令
+//Linux系统中，磁盘上的文件和目录被组成一颗目录树，每个节点都是目录或文件
+//语法：cd目录名
+//功能：改变工作目录，将当前工作目录改变到指定目录下。
+//
+//touch指令
+//语法：touch[选项]...文件...
+//功能：touch命令参数可改变文档或目录的日期时间，包括存取时间和更改时间，或者新建一个不存在的文件
+//常用选项：
+//* -a 或 -time=atime 或 --time=access 或 -time=use 只更改存取时间
+//* -d 使用指定的日期和时间，而非现在的时间。
+//* -f 此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题
+//* -m 或--time=mtime 或 --time=modify 只更改变动时间。
+//* -r 把指定文档或目录的时间，统统设成和参考文档或目录的日期时间相同
+//* -t 使用指定的日期时间，而非现在的时间。
+//typedef struct Wuhu
+//{
+//	int name[10];
+//	int age;
+//	struct wuhu* next;
+//}Wuhu;
+//int main()
+//{
+//	int i = 0,j=0;
+//	printf("输入次数");
+//	scanf_s("%d", j);
+//	struct Wuhu* p, * fist, * end;
+//	for (i = 0; i < j; i++)
+//	{
+//		p = (Wuhu*)malloc(sizeof(Wuhu));
+//		printf("请输入");
+//		scanf_s("%d", p->name);
+//		scanf_s("%d", p->age);
+//		fist = p;
+//		end = p;
+//		end->next = NULL;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int aa[2][5] = { 10,9,8,7,6,5,4,3,2,1 };
+//	int *ptr1 = (int *)(&aa + 1);
+//	int* ptr2 = (int*)(*(aa + 1));
+//	printf("%d,%d", *(ptr1 - 1), *(ptr2 - 1));
+//}
+//
+//int main()
+//{
+//    int input = 2019;
+//    int add = 0;
+//    int q = 0;
+//    int b = 0;
+//    int g = 0;
+//    for (input = 2019; input > 0; input--)
+//    {
+//        q = input % 1000;
+//        if (q == 9)
+//        {
+//            add++;
+//            continue;
+//        }
+//        b = input % 100;
+//        if (b == 9)
+//        {
+//            add++;
+//            continue;
+//        }
+//        g = input % 10;
+//        if (g == 9)
+//        {
+//            add++;
+//            continue;
+//        }
+//
+//    }
+//    printf("%d", add);
+//    return 0;
+//}
+//typedef struct wuhu
+//{
+//	int number[10];
+//	int march[3];
+//	struct wuhu* next;
+//}wuhu;
+//int mian()
+//{
+//	struct wuhu* p, * fist, * end;
+//	p = (wuhu*)malloc(sizeof(wuhu));
+//	scanf("%d", p->number);
+//	scanf("%d", p->march);
+//	fist = p;
+//	end = p;
+//	end->next = NULL;
+//	p = (wuhu*)malloc(sizeof(wuhu));
+//	scanf("%d", p->number);
+//	scanf("%d", p->march);
+//	p = p->next;
+//  end = p;
+//  end->next = NULL;
+//
+//}
+//typedef struct wuhu
+//{
+//	int number;
+//	struct wuhu* next;
+//}wuhu;
+//int main()
+//{
+//	int i = 0;
+//	int input = 0;
+//	struct wuhu* fist, * p, * end;
+//	printf("请输入数据个数:>");
+//	scanf_s("%d", &input);//单链长度
+//	for (i = 0; i < input; i++)
+//	{
+//
+//      p = (wuhu*)malloc(sizeof(wuhu));
+//	  p->number = 1;//赋值
+//	    if (i == 0)
+//	    {
+//		   fist = p;//指向首元素首地址地址
+//		   end = p;
+//		   end->next = NULL;//尾指针设空
+//	    }
+//	    else
+//	    {
+//		   p->next = p;
+//		   end = p;
+//		   end->next = NULL;//尾指针设空
+//	    }
+//		printf("%d", p->number);
+//		p = p->next;
+//	}
+//	int dingdan;
+//	printf("请输入要查询的订单:>");
+//	scanf_s("%d", &dingdan);
+//	while (p != NULL)
+//	{
+//		if (p->number == dingdan)
+//		{
+//			break;
+//		}
+//		p = p->next;
+//		else if (p == NULL)
+//		{
+//			printf("not found");
+//		}
+//	}
+//	return 0;
+//}
+//
+//strcat
+//. Appends a copy of the source string to the destination string. The terminating null
+//  character in destination is overwritten by the first character of source,and a null
+//  -character is included at the end of the new string formed by the concatenation of
+//  both in destination.
+//. 源字符必须以'\0'结束
+//. 目标空间必须足够大，能容纳下源字符串的内容
+//. 目标空间必须可修改
+//
+//
+
+
+
