@@ -1,2 +1,4 @@
 ﻿  test.c
-D:\Cyuyan\练习\test.c(489,3): error C2181: 没有匹配 if 的非法 else
+D:\Cyuyan\练习\test.c(594,22): warning C4013: “strerror”未定义；假设外部返回 int
+D:\Cyuyan\练习\test.c(594,1): warning C4047: “初始化”:“char *”与“int”的间接级别不同
+  练习.vcxproj -> D:\Cyuyan\练习\Debug\练习.exe

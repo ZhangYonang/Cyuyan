@@ -1,0 +1,3 @@
+﻿  test.c
+D:\Cyuyan\my_strncpy\test.c(22,9): warning C4013: “strncpy”未定义；假设外部返回 int
+  my_strncpy.vcxproj -> D:\Cyuyan\my_strncpy\Debug\my_strncpy.exe

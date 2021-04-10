@@ -481,6 +481,7 @@
 //	int dingdan;
 //	printf("请输入要查询的订单:>");
 //	scanf_s("%d", &dingdan);
+//	p = fist;
 //	while (p != NULL)
 //	{
 //		if (p->number == dingdan)
@@ -488,12 +489,12 @@
 //			break;
 //		}
 //		p = p->next;
-//		else if (p == NULL)
+//	    if (p == NULL)
 //		{
 //			printf("not found");
 //		}
 //	}
-//	return 0;
+//return 0;
 //}
 //
 //strcat
@@ -505,7 +506,136 @@
 //. 目标空间必须足够大，能容纳下源字符串的内容
 //. 目标空间必须可修改
 //
+//strcmp
+//. This function starts comparing the first character of each string. If they are equal
+//  to each other,it continues with the following pairs until the characters differ or 
+//  until a terminating null-character is reached
+//. 第一个字符串大于第二个字符串，则返大于0的数字
+//. 第一个字符串等于第二个字符串，则返回0
+//. 第一个字符串小于第二个字符串，则返回小于0的数字
 //
+//strncpy
+//. Copies the first num characters of source to destination, If the end of the source C 
+//  string(which is signaled by a null - character) is found before num characters have 
+//  been copied, destination is padded with zeros until a total of num characters have 
+//  been written to it.
+//. 拷贝num个字符从源字符串到目标空间。
+//. 如果源字符串的长度小于num, 则拷贝完源字符串之后, 在目标的后边追加0, 直到num个。
+//
+//
+//strncat
+//· Appends the first num characters of source to destination, plus a terminating null - character.
+//. If the length of the C string in source is less than num, only the content up to the terminating
+//  null - character is copied.
 
+//int main()
+//{
+//	char str[][5] = { "R2D2" , "C3PO" , "R2A6" };
+//	int n;
+//	puts("Looking for R2 astromech droids...");
+//	for (n = 0; n < 3; n++)
+//	{
+//		if (strncmp(str[n], "R2xx", 2) == 0)
+//		{
+//			printf("found %s\n", str[n]);
+//		}
+//	}
+//	return 0;
+//}
 
+//strtok
+//char*strtok(char t str, const char t sep);
+//. sep参数是个字符串, 定义了用作分隔符的字符集合。
+//. 第一个参数指定一个字符串，它包含了0个或者多个由sep字符串中一个或者多个分隔符分割的标记。
+//  strtok函数找到str中的下一 个标记, 并将其用\0结尾, 返回一个指向这个标记的指针。(注: strtok
+//  函数会改变被操作的字符串, 所以在使用strtok函数切分的字符串一般都是临时拷贝的内容并且可修改。)
+//. strtok函数的第一 个参 数不为NULL, 函数将找到str中第一个标记, strtok函数将保存它在字符串中的位置。
+//. strtok函数的第一 个参数为NULL, 函数将在同一个字符串中被保存的位置开始, 查找下一个标记。
+//. 如果字符串中不存在更多的标记, 则返回NULL指针。
+/*int main()
+{
+	char arr[] = "123456@234.com";
+	char* p = "@.";
+	char buf[1024] = { 0 };
+	strcpy(buf, arr);
+	char* ret = NULL;
+	for (ret = strtok(arr, p); ret != NULL; ret = strtok(NULL, p))
+	{
+		printf("%s\n", ret);
+	}
+	return 0;
+}
+
+*/
+//
+//函数       如果他的参数符合下列条件就返回真
+//
+//iscntrl   控制任何字符
+//isspace   空白字符：空格' ',换页'\f',换行'\n',回车'\r',制表符'\t'或者垂直制表符'\v'
+//isdigit   十进制数字 0~9
+//isxdigit  十六进制数字，包括所以十进制数字，小写字母a~f，大写字母A~F
+//islower   小写字母a~z
+//issupper  字母A~Z
+//isalpha   字母a~z或A~Z
+//isalnum   字母或者数字，a~z,A~Z,0~9
+//ispunct   标点符号，任何不属于数字或者字母的图形字符（可打印）
+//isgraph   任何图形字符
+//isprint   任何可打印字符，包括图形字符和空白字符
+//int main()
+//{
+	//错误码  错误信息
+	//  0  -  No error     
+	//  1  -  Operation not permitted 
+	//  2  -  No such file or directory
+	// ...
+	//errno 是一个全局的错误码的变量
+	//当C语言的库函数在执行过程中，发生了错误，就会把对应的错误码
+	//赋值到errno中
+	//char* str = strerror(errno);
+	//printf("%s", str);
+	//return 0;
+//}
+
+//void* memcpy(void* destination，const void* source， size_ t num);
+//. 函数memcpy从source的位置开始向后复制num个字节的数据到destination的内存位置。
+//. 这个函数在遇到'\0'的时候并不会停下来。
+//. 如果source和destination有任何的重叠,复制的结果都是未定义的。
+// 
+//. 和memcpy的差别就是memmove函数处理的源内存块和目标内存块是可以重叠的。
+//. 如果源空间和目标空间出现重叠，就得使用memmove函数处理。
+//int my_strlen(const char* str)
+//{
+//	if (*str == '\0')
+//		return 0;
+//	else
+//		return 1 + my_strlen(str + 1);
+//}
+
+//int my_strlen(char* s)
+//{
+//	char* p = s;
+//	while (*p != '\0')
+//		p++;
+//	return p - s;
+//}
+//int main()
+//{
+//	//01 00 00 00 02 00 00 00 03 00 00 ...
+//	//01 00 00 00 02 00 00 00 05 00 00 ...
+//	int arr1[] = { 1,2,3,4,5 };
+//	int arr2[] = { 1,2,5,4,3 }; 
+//	int ret = memcmp(arr1, arr2, 9);//对比的大小单位是字符
+//	printf("%d\n", ret);
+//	return 0;
+//}
+int main()
+{
+	char arr[10] = "";
+	memset(arr,'#',10);
+	//int arr[10] = { 0 };
+	//memset(arr, 1, 10);
+	//          err 因为设置的内存大小是字符串
+	//小端储存中  00 00 00 00 00 00 00 00 00 ...
+	//  被设置为  01 01 01 01 01 01 01 01 01 ...
+}
 
