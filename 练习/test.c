@@ -628,14 +628,234 @@
 //	printf("%d\n", ret);
 //	return 0;
 //}
-int main()
-{
-	char arr[10] = "";
-	memset(arr,'#',10);
+//int main()
+//{
+//	char arr[10] = "";
+//	memset(arr,'#',10);
 	//int arr[10] = { 0 };
 	//memset(arr, 1, 10);
 	//          err 因为设置的内存大小是字符串
 	//小端储存中  00 00 00 00 00 00 00 00 00 ...
 	//  被设置为  01 01 01 01 01 01 01 01 01 ...
+//}
+//struct stu
+//{
+//	char name[10];
+//	char telnumber[30];
+//}stu4;//全局变量
+//
+//struct stu stu3;//全局变量
+//
+//int main()
+//{
+//	struct stu stu1;//局部变量
+//	struct stu stu2;//局部变量
+//	return 0;
+//}
+
+//匿名结构体类型
+//struct
+//{
+//	char name[20];
+//	int age;
+//}x;//只能使用x变量 无法创建新的变量
+
+//struct A
+//{
+//	int a;
+//	struct A a;//err
+//};
+//struct B
+//{
+//	int a;
+//	struct B* next;
+//};
+//
+//
+//typedef struct Node
+//{
+//	int a;
+//}node;//typedef 将struct Node重命名为node
+//typedef struct Wuhu
+//{
+//	char s;
+//	char a;
+//	int d;
+//	char arr[30];
+//}wuhu;
+//int main()
+//{
+//    wuhu hh = {'s','a',6,"helloworld"};
+//	printf("%c %c %d %s", hh.s, hh.a, hh.d, hh.arr);
+//	return 0;
+//}
+
+//
+//如何计算 ？首先得掌握结构体的对齐规则：
+//     1.第一个成员与结构体变量偏移量为0的地址处。
+//	 2.其他成员变量要对齐到某个数字(对齐数)的整数倍的地址处。
+//对齐数 = 编译器默认的第一个对齐数 与 该成员大小的较小值。
+//    vs 中默认的值为8。
+//	 3.结构体总大小为最大对齐数(每个成员变量都有一个对齐数)的整数倍。
+//	 4.如果嵌套了结构体的情况，嵌套的结构体对齐到自己的最大的整数倍处，
+//	   结构体的整体大小就是所有最大对齐数(含嵌套结构体的对齐数)的整数倍。
+
+//为什么存在内穿对齐？
+//   大部分的参考资料都是这么说的(没有官方解释)
+//   1.平台原因(移植原因):不是所有硬件平台都 能访问任意地址上的任意数据；
+//	                  某些硬件平台只能在某些地址处取某些特定类型的数据
+//                      否则抛出硬件异常。
+//   2.性能原因:数据结构(尤其是栈)应该尽可能的在自然界边界上对齐。原因在与
+//	         为了访问未对齐的内存，处理器需要做两次内存访问；而对齐的内存
+//	         访问仅仅需要一次访问。
+//总体来说：结构体的内存对齐是拿空间来换取时间的做法。
+
+//位段的内存分派
+//1.位段的成员可以是 int,unsigned int,signed int 或者是 char (属于整形家族)类型
+//2.位段的空间上是按照需要以4个字节(int)或者1个字节(char)的方式来开辟的。
+//3.位段涉及很多不确定因素，位段是不跨平台的，注意可移植的程序应该避免使用位段。
+
+//枚举的优点
+//为什么使用枚举？
+//我们可以使用#define定义常量，为什么非要使用枚举？
+//枚举的优点：
+//1.增加代码的可读性和可维护性。
+//2.和#define定义的标识符比较枚举有类型检查，更加严谨。
+//3.防止了命名污染（封装）。
+//4.便于调试。
+//5.使用方便，一次可以定义多个变量。
+
+//typedef struct stu
+//{
+//	char name[10];
+//	char telnumber[30];
+//	char a;
+//	int age;
+//}wuhu;
+//int main()
+//{
+//	int i;
+//	wuhu a = { "abcde","1234",'a',10 };
+//	return 0;
+//	i=strlen(wuhu);
+//	printf("%d", i);
+//}
+
+//struct A
+//{
+//	int a : 2;
+//	int b : 5;
+//	int c : 10;
+//};
+
+//enum Sex
+//{
+//	MALE = 2,
+//    FEMALE = 3,
+//	secret=0
+//};
+//int main()
+//{
+//	enum Set s = MALE;
+//	return 0;
+//}
+//
+//union Un
+//{
+//	char i;
+//	int j;
+//};
+//int main()
+//{
+//
+//}
+//int main()
+//{
+//	int x = 0;
+//	int* a;
+//	a = &x;
+//	printf("%p",a);
+//
+//}
+//C语言提供了一个动态内存开辟的函数
+//void* malloc(sizeof(size_t size));
+//这个函数向内存申请一块连续可用的空间，并返回指向这块空间在指针。
+//-如果开辟成功，则返回一个指向开辟好空间的指针。
+//-如果开辟失败，则返回一个NULL指针，因此malloc的返回值一定要做检查。
+//-返回值的类型是void*，所以malloc函数并不知道开辟的空间的类型，具体
+// 在使用的时候使用者自己去决定。
+//-如果参数size为0，malloc的行为是标准未定义的，取决于编译器。
+
+//C语言提供了另外一个函数free，专门是用来做动态内存的释放和回收的
+//void free(void* ptr);
+//free函数用来释放动态开辟的内存
+//-如果函数ptr指向的空间不是动态开辟的，那free函数的行为的未定义的。
+//-如果函数ptr是NULL指针，则函数什么事都不做。
+
+
+//int main()
+//{
+//	//向内存申请10个整形的空间
+//	int* p = (int*)malloc(40);
+//	if (p == NULL)
+//	{
+//		//打印错误原因的一个方式
+//		printf("%s\n", strerror(errno));
+//	}
+//	else
+//	{
+//		//正常使用空间
+//		int i = 0;
+//		for (i = 0; i < 10; i++)
+//		{
+//			*(p + i) = i;
+//		}
+//		for (i = 0; i < 10; i++)
+//		{
+//			printf("%d".*(p + i));
+//		}
+//	}
+//	//当动态申请的空间不再使用的时候
+//	//就应该还给操作系统
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+//C语言还提供了一个函数叫calloc, calloc函数也用来动态内存分配
+//
+// 原型： void* calloc(size_t num, size_t size);
+//-函数的功能是为num个大小为size的元素开辟一块空间，并且把空间
+// 的每个字节初始化为0.
+//-与malloc的区别只在于calloc会在返回地址之前把申请的空间的每个
+// 字节初始化为全0.
+
+int main()
+{
+	//malloc(10*sizeof(int));
+	int* p = (int*)calloc(10, sizeof(int));
+	if (p == NULL)
+	{
+		printf("%s\n",strerror(errno));
+	}
+	else
+	{
+		int i = 0;
+		for (i = 0; i < 10; i++)
+		{
+			printf("%d ", *(p + 1));
+		}
+	}
+	//释放空间
+	//free函数是用来释放动态开辟的空间的
+	free(p);
+	p = NULL;
+	return 0;
 }
+
+
+
+
+
+
 
