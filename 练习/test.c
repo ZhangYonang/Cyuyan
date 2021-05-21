@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+//#include<stdio.h>
+//#include<stdlib.h>
 //int main()
 //{
 //	int arr[10] = { 0 };
@@ -812,7 +812,7 @@
 //		}
 //		for (i = 0; i < 10; i++)
 //		{
-//			printf("%d".*(p + i));
+//			printf("%d",*(p + i));
 //		}
 //	}
 //	//当动态申请的空间不再使用的时候
@@ -830,32 +830,387 @@
 //-与malloc的区别只在于calloc会在返回地址之前把申请的空间的每个
 // 字节初始化为全0.
 
+//int main()
+//{
+//	//malloc(10*sizeof(int));
+//	int* p = (int*)calloc(10, sizeof(int));
+//	if (p == NULL)
+//	{
+//		printf("%s\n",strerror(errno));
+//	}
+//	else
+//	{
+//		int i = 0;
+//		for (i = 0; i < 10; i++)
+//		{
+//			printf("%d ", *(p + 1));
+//		}
+//	}
+//	//释放空间
+//	//free函数是用来释放动态开辟的空间的
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+//- realloc函数的出现让动态内存管理更加灵活
+//- 有时我们会发现过去申请的空间太小了，有时候我们又觉得申请的
+//  空间太大了，那为了合理的使用内存，我们一定会对内存做灵活的
+//  调整。那realloc函数就可以做到对动态开辟内存大小的调整。
+//  函数原型：void * realloc(void* ptr, size_t size);
+//- ptr是要调整的内存地址。
+//- size调整之后新大小
+//- 返回值为调整之后的内存起始位置
+//- 这个函数调整原内存空间大小的基础上，还会将原来内存中的数据
+//  移动到新的空间。
+//- realloc在调整内存空间时存在两种情况
+//1：原有空间之后有足够大的空间
+//
+//int main()
+//{
+//	int* p = (int*)malloc(sizeof(int));
+//	int* ptr = realloc(p, INT_MAX);
+//	if (ptr != NULL)
+//	{
+//		p = ptr;
+//		int i = 0;
+//		for (i = 5; i < 10; i++)
+//		{
+//			*(p + i) = i;
+//		}
+//		for (i = 0; i < 10; i++)
+//		{
+//			printf("%d ", *(p + i));
+//		}
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int i = 0;
+//	int* p = (int*)malloc(10 * sizeof(int));
+//	if (NULL == p)
+//	{
+//		exit(EXIT_FAILURE);
+//	}
+//	for (i = 0; i <= 10; i++)
+//	{
+//		*(p + i) = i;//i为10时越界访问
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 10;
+//	int* p = &a;
+//	free(p);//此行为在c语言中是为定义的
+//	return 0;
+//}
+//
+
+//int main()
+//{
+//	int* p = (int*)malloc(100);
+//	p++;
+//	free(p);//p++后p将不在指向动态内存起始位置
+//	return 0;
+//}
+
+//int main()
+//{
+//	int* p = (int*)malloc(100);
+//	free(p);
+//	free(p);//重复释放
+//}
+
+//void wuhu()
+//{
+//	int* p = (int*)malloc(100);
+//	if (NULL != p)
+//	{
+//		*p = 20;
+//	}
+//}
+//int main()
+//{
+//	while (1)
+//	{
+//		wuhu();
+//	}
+//	return 0;
+//	
+//}
+
+//typedef struct wuhu
+//{
+//	int a;
+//	int a[0];//柔性数组成员
+//}WUHU;
+
+//typedef struct wuhu
+//{
+//	int a;
+//	int arr[0];
+//}WUHU;
+//int main()
+//{
+//	int i = 0;
+//	WUHU* p = (WUHU*)malloc(sizeof(WUHU) + 100 * sizeof(int));
+//	//                                结构体+数组元素个数*sizeof(int);
+//	p->a = 100;//赋值a
+//	for (i = 0; i < 100; i++)
+//	{
+//		p->arr[i] = i;//赋值arr数组中100个元素
+//	}
+//	for (i = 0; i < 100; i++)
+//	{
+//		printf("%d ", p->arr[i]);
+//	}
+//	free(p);
+//	p = NULL;
+//	return 0;
+//
+//}
+//
+//typedef struct wuhu
+//{
+//	int a;
+//	int* p_a;
+//}WUHU;
+//int main()
+//{
+//	int i = 0;
+//	WUHU* p = (WUHU*)malloc(sizeof(WUHU));
+//	p->a = 100;
+//	p->p_a = (int*)malloc(100 * sizeof(int));
+//	for (i = 0; i < 100; i++)
+//	{
+//		p->p_a[i] = i;
+//	}
+//	for (i = 0; i < 100; i++)
+//	{
+//		printf("%d ", p->p_a[i]);
+//	}
+//	free(p->p_a);
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+//
+//二进制文件:数据在内存中以二进制储存，如果不加转化储存到外存上就是二进制文件。
+//
+//文本文件  :如果要求在外存上以ASCII码的形式储存，则需要在储存前转换，以ASCII码值存放的数据
+//          就是文本文件。
+
+//字符一律以ASCII码存放，数值形数据即可以ASCII码值形式存放也可以以二进制形式存放。
+
+//#include<stdio.h>
+//int main()
+//{
+//	int a = 10000;
+//	FILE* pf = fopen("test.txt","wb");
+//	fwrite(&a, 4, 1, pf);
+//	pf = NULL;
+//	return 0;
+//}
+//方法一：在程序最前面加#define _CRT_SECURE_NO_DEPRECATE；
+//方法二：在程序最前面加#define _CRT_SECURE_NO_WARNINGS；
+//方法三：在程序最前面加#pragma warning(disable:4996)；
+//方法四：把scanf、scanf改为scanf_s、fopen_s，具体方法请百度；
+//方法五：无需在程序最前面加那行代码，只需在新建项目时取消勾选“SDL检查”即可；
+//方法六：若项目已建立好，在项目属性里关闭SDL也行；
+//方法七：在工程项目设置一下就行；将报错那个宏定义放到 项目属性 -- C / C++--预处理器 -- 预处理器定义；
+//方法八：在 项目属性 -- c / c++ --命令行 添加： / D _CRT_SECURE_NO_WARNINGS 就行了。
+
+//文件缓冲区
+//ANSIC标准采用“缓存文件系统”处理数据文件，所谓缓存文件系统是指系统自动的在内存中为每一个程序
+//中每一个正在使用的文件开辟一块“文件缓存区”。从内存向磁盘输出的数据会先送到内存中的缓存区，装
+//满缓存区后才一起送到磁盘上。如果从磁盘向计算机读入数据，则从磁盘中读取数据输入到内存缓存区，
+//充满缓存区然后再从缓冲区逐个的将数据送到程序数据区（程序变量等）。缓冲区的大小根据C编译系统
+//决定的。
+
+//文件指针
+//缓冲文件系统中，关键的概念是“文件类型指针”，简称“文件指针”每个被使用的文件都在内存中开辟了一个
+//相应的文件信息区，用来存放文件的相关信息（如文件的名字，文件状态及文件的当前位置等）。这些信息
+//是保存在一个结构体变量中的，该结构体是有系统声明的，取名FILE。
+
+
+//每当打开一个文件的时候，系统会根据文件的情况自动创建一个FILE结构的变量，并填充其中的信息
+//使用者不必关系细节
+//一般都是通过一个FILE的指针来维护这个FILE结构的变量，并填充其中的信息，这样使用起来更方便
+//我们可以创建一个FILE*的指针变量
+//FILE* pf//文件指针变量
+//
+//定义pf是一个指向FILE类型数据的指针变量。可以使pf指向某个文件的文件信息区（是一个结构体）。
+//通过该文件信息区中的文件就能访问该文件，通过文件指针变量能够找到与它关联的文件
+
+//文件在读写之前应该先打开文件，在使用结束之后应该关闭文件。
+//在编写程序的时候，在打开文件的同时，都会返回一个FILE* 的指针变量指向该文件，也相当于建立
+//了指针和文件的关系。
+//ANSIC规定使用fopen函数来打开文件，fclose来关闭文件。
+//FILE* fopen(const char* filename, const char* mode);
+//int fclose(FILE* stream);
+//
+//文件使用方式         含义                                           如果文件不存在
+//r  （只读）          为了输入数据，打开一个已经存在的文本文件          出错
+//w  （只写）          为了输入数据，打开一个文本文件                   建立一个新的文件
+//a  （追加）          向文本文件尾添加数据                            出错
+//rb （只读）          为了输入数据，打开一个二进制文件                 出错
+//wb （只写）          为了输出数据，打开一个二进制文件                 创建一个新的文件
+//ab （追加）          向一个二进制文件尾追加数据                       出错
+//r+ （读写）          为了读和写，打开一个文本文件                     出错
+//w+ （读写）          为了读和写，建立一个新的文件                     建立一个新的文件
+//a+ （读写）          打开一个文件，在文件尾进行读写                   建立一个新的文件
+//rb+（读写）          为了读和写打开一个二进制文件                     出错
+//wb+（读写）          为了读和写，新建一个新的二进制文件               建立一个新的文件
+//ab+（读写）          打开一个二进制文件，在文件尾进行读和写            建立一个新的文件
+//#include<stdio.h>
+//int main()
+//{
+//	int a = 10000;
+//	FILE* pf = fopen("TEST.txt", "wb");
+//	fwrite(&a, 4, 1, pf);//二进制的形式写到文件中
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	char s[100] = { 0 };
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	fgets(s, 12, pf);
+//	printf("%s", s);
+//	return 0;
+//}
+//#include<stdio.h>
+//int main()
+//{
+//	char* a = "h";
+//	FILE* pf = fopen("test.txt","w");
+//	fputc(*a, pf);
+//	pf = NULL;
+//	return 0;
+//}
+
+
+
+//#include<stdio.h>
+//struct wuhu
+//{
+//	int a;
+//	float f;
+//};
+//int main()
+//{
+//	struct wuhu wuhu = { 0 };
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	fscanf(pf,"%d %f",&wuhu.a,&wuhu.f);
+//	fclose(pf);
+//	pf = NULL;
+//	printf("%d %f", wuhu.a, wuhu.f);
+//	return 0;
+//}
+//#include<stdio.h>
+//struct wuhu
+//{
+//	int a;
+//	float f;
+//};
+//int main()
+//{
+//	struct wuhu wuhu = { 0 };
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	fscanf(pf, "%d %f", &wuhu.a, &wuhu.f);
+//	fclose(pf);
+//	pf = NULL;
+//	printf("%d %f", wuhu.a, wuhu.f);
+//	return 0;
+//}
+//#include<stdio.h>
+//int main()
+//{
+//	char arr[30] = { 0 };
+//	FILE* pf = fopen("test.txt", "r+");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	fputs("Wu   qifei",pf);
+//	fseek(pf, 2, SEEK_SET);
+//	fputs("hu", pf);
+//	rewind(pf);
+//	fgets(arr, 10, pf);
+//	printf("%s", arr);
+//	fclose(pf);
+//	pf = NULL;
+//	return 0;
+//}
+#include<stdio.h>
+#include<stdlib.h>
+//int main()
+//{
+//	int judge;
+//	FILE* pf = fopen("test.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//	while ((c = fgetc(pf)) != EOF)//标准C I/O读取文件循环
+//	{
+//		putchar(c);
+//	}
+//	if (ferror(fp))
+//	{
+//		puts("读取时出错");
+//	}
+//	else if (feof(fp))
+//	{
+//		puts("")
+//	}
+//	return 0;
+//}
+#include<stdio.h>
 int main()
 {
-	//malloc(10*sizeof(int));
-	int* p = (int*)calloc(10, sizeof(int));
-	if (p == NULL)
+	int c;
+	FILE* pf = fopen("test.txt", "r");
+	if (pf == NULL)
 	{
-		printf("%s\n",strerror(errno));
+		return 0;
 	}
-	else
+	while ((c = fgetc(pf)) != EOF)//  I/O读取文件循环
 	{
-		int i = 0;
-		for (i = 0; i < 10; i++)
-		{
-			printf("%d ", *(p + 1));
-		}
+		putchar(c);
 	}
-	//释放空间
-	//free函数是用来释放动态开辟的空间的
-	free(p);
-	p = NULL;
+	if (ferror(pf))
+	{
+		puts("读取时出错:");
+	}
+	else if (feof(pf))
+	{
+		printf("已成功到达文件结尾");
+	}
 	return 0;
+
 }
-
-
-
-
-
-
-

@@ -1,0 +1,8 @@
+﻿  contact.c
+D:\Cyuyan\Contact\contact.h(13,1): error C2016: C 要求一个结构或联合至少有一个成员
+D:\Cyuyan\Contact\contact.h(13,2): warning C4091: “typedef ”: 没有声明变量时忽略“contact”的左侧
+D:\Cyuyan\Contact\contact.c(7,10): warning C4098: “Menu”:“void”函数返回值
+  test.c
+D:\Cyuyan\Contact\contact.h(13,1): error C2016: C 要求一个结构或联合至少有一个成员
+D:\Cyuyan\Contact\contact.h(13,2): warning C4091: “typedef ”: 没有声明变量时忽略“contact”的左侧
+  正在生成代码...
